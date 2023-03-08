@@ -1,0 +1,3 @@
+[submodule "vd_astronautas"]
+	path = vd_astronautas
+	url = https://github.com/visualizacion-de-datos-utdt/vd_astronautas
