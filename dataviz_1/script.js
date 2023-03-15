@@ -21,7 +21,12 @@ async function main(){
     console.log(borders)
     
     var countries = topojson.feature(world, world.objects.countries).features;
-    console.log(countries)
+    //console.log(countries)
+
+    countries.forEach(d => {
+        console.log(d.properties.name);
+    })
+
     var sphere = ({ type: "Sphere" });
     console.log(sphere)
     var tilt = 20;
@@ -30,7 +35,7 @@ async function main(){
     var vx = 0.001, vy = -0.001;
     //define context with width and height
     // var context = d3.select("body").append("canvas");
-    var context = d3.select("body").append("canvas").attr("width", width).attr("height", height).node().getContext("2d");
+    var context = d3.select("body").append("canvas").attr("width", width).attr("height", height).attr("id", "worldmap").node().getContext("2d");
 
     // var context = DOM.context2d(width, height);
     var path = d3.geoPath(projection, context);
@@ -40,16 +45,17 @@ async function main(){
     
     function render(country, arc) {
         context.clearRect(0, 0, width, height);
-        context.beginPath(), path(land), context.fillStyle = "#ccc", context.fill();
-        context.beginPath(), path(country), context.fillStyle = "#f00", context.fill();
-        context.beginPath(), path(borders), context.strokeStyle = "#fff", context.lineWidth = 0.5, context.stroke();
-        context.beginPath(), path(sphere), context.strokeStyle = "#000", context.lineWidth = 1.5, context.stroke();
+        context.beginPath(), path(land), context.fillStyle = "#1E1E1E", context.fill();
+        context.beginPath(), path(country), context.fillStyle = "#f8f14e", context.fill();
+        context.beginPath(), path(borders), context.strokeStyle = "#f8f14e", context.lineWidth = 0.5, context.stroke();
+        context.beginPath(), path(sphere), context.strokeStyle = "#f8f14e", context.lineWidth = 1.5, context.stroke();
         context.beginPath(), path(arc), context.stroke();
         return context.canvas;
     }
 
     async function navigate(country, p1, p2, ip, iv) {
        await d3.transition()
+            .delay(500)
             .duration(1250)
             .tween("render", () => t => {
                 projection.rotate(iv(t));
@@ -65,7 +71,69 @@ async function main(){
     let p1, p2 = [0, 0], r1, r2 = [0, 0, 0];
     //render("Argentina",  {type: "LineString", coordinates: [ip(t), p2]})
     
-    for (const country of countries) {
+    //for (const country of countries) {
+    for (const astronauta of astronautas) {
+        var ast_pais = astronauta.nacionalidad;
+    
+        var country_name_map = {
+            "EE.UU.": "United States of America",
+            "Italia": "Italy",
+            "U.S.S.R/Rusia": "Russia",
+            "Japon": "Japan",
+            "Reino Unido": "United Kingdom",
+            "Paises Bajos": "Netherlands",
+            "Alemania": "Germany",
+            "Dinamarca": "Denmark",
+            "Francia": "France",
+            "Kasajistan": "Kazakhstan",
+            "Emiratos Arabes Unidos": "United Arab Emirates",
+        }
+        
+        if (country_name_map[ast_pais] != undefined){
+            ast_pais = country_name_map[ast_pais];
+        }
+
+        var country = countries.find(c => c.properties.name === ast_pais)
+        if (country == undefined){
+            console.log(ast_pais)
+            continue;
+        }
+        //console.log({ast_pais, country})
+        
+        //document.querySelector("#nacionalidad").innerHTML = ast_pais;
+        //document.querySelector("#nombre").innerHTML = astronauta.nombre;
+
+        var typed_name = new Typed('#nombre', {
+            strings: ["Nombre: ", "Nombre: " + astronauta.nombre],
+            typeSpeed: 50,
+            loop: false,
+            cursorChar: '',
+            smartBackspace: true,
+        });
+
+        var typed_pais = new Typed('#nacionalidad', {
+            strings: ["Pais: ", "Pais: " + astronauta.nacionalidad],
+            typeSpeed: 50,
+            loop: false,
+            cursorChar: '',
+            smartBackspace: true,
+        });
+
+        var typed_pais = new Typed('#anio_mision', {
+            strings: ["Año de Mision: ", "Año de Mision: " + astronauta.anio_mision],
+            typeSpeed: 50,
+            loop: false,
+            cursorChar: '',
+            smartBackspace: true,
+        });
+        var typed_pais = new Typed('#horas', {
+            strings: ["Horas: ", "Horas: " + astronauta.mision_hs + "hs"],
+            typeSpeed: 50,
+            loop: false,
+            cursorChar: '',
+            smartBackspace: true,
+        });
+
         var name = country.properties.name;
         //console.log(name)
         // yield render(country);
