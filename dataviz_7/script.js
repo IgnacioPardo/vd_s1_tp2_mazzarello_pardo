@@ -24,13 +24,14 @@ d3.csv("../vd_astronautas/astronautas.csv", d3.autoType).then(astronautas => {
         ],
         x: {
             label: 'Año de misión',
-            labelOffset: 40,
+            labelOffset: 30,
             fontSize: 14,
+            fontSize: '20',
         },
         y: {
             label: 'Cantidad de misiones',
             labelOffset: 10,
-            fontSize: 20,
+            fontSize: '20',
         },
         color: {
             scheme: 'reds',
@@ -38,12 +39,11 @@ d3.csv("../vd_astronautas/astronautas.csv", d3.autoType).then(astronautas => {
         },
         style: {
             fontFamily: 'sans-serif',
-            fontSize: 14,
             background: 'black',
-            color: 'yellow',
+            color: '#f8f14e',
             padding: '50px',
         },
     })
 
-    d3.select('#chart').append(() => chart)
+    d3.select('#hist_chart').append(() => chart)
 })

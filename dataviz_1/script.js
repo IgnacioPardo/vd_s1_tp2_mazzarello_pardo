@@ -35,7 +35,7 @@ async function main(){
     var vx = 0.001, vy = -0.001;
     //define context with width and height
     // var context = d3.select("body").append("canvas");
-    var context = d3.select("body").append("canvas").attr("width", width).attr("height", height).attr("id", "worldmap").node().getContext("2d");
+    var context = d3.select("#info").append("canvas").attr("width", width).attr("height", height).attr("id", "worldmap").node().getContext("2d");
 
     // var context = DOM.context2d(width, height);
     var path = d3.geoPath(projection, context);
