@@ -32,12 +32,12 @@ d3.csv("../vd_astronautas/astronautas.csv", d3.autoType).then(astronautas => {
             legend: true,
         },
         style: {
-            fontFamily: 'sans-serif',
+            fontFamily: 'Prompt',
             fontSize: 10,
             background: 'black',
-            color: 'yellow',
+            color: '#f8f14e',
             padding: '50px',
         },
     })
-    d3.select('#chart').append(() => chart)
+    d3.select('#hist2_chart').append(() => chart)
 })
