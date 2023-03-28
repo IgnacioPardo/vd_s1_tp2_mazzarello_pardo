@@ -98,9 +98,9 @@ function start() {
   if (!state) {
     new Audio("audio.mp3").play();
 
-    /* setTimeout(() => {
+    setTimeout(() => {
                     launchFullScreen();
-                }, 1000); */
+                }, 1000);
 
     var intro = document.getElementById("intro");
     var playground = document.getElementById("playground");

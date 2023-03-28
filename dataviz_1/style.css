@@ -178,6 +178,7 @@ footer {
     align-items: center;
     justify-content: center;
     height: 100%;
+    transition: height 1s ease-out;
     gap: 30px;
     margin-top: 150px;
     padding: 20px;
@@ -185,6 +186,13 @@ footer {
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 12px;
     backdrop-filter: blur(8px);
+}
+
+.collapsed {
+    height: 68px;
+    overflow: hidden;
+    justify-content: flex-start;
+    transition: height 1s ease-out;
 }
 
 #dots {
@@ -235,4 +243,17 @@ footer {
     padding: 10px;
     margin: 10px;
     cursor: pointer;
+}
+
+#dataset_link{
+    margin-top: 60px;
+}
+
+#dataset_link a{
+    color: #f8f14e;
+    text-decoration: none;
+}
+#dataset_link a:hover{
+    color: #f8f14e;
+    text-decoration: underline;
 }
