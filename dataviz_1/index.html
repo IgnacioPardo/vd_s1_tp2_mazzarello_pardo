@@ -1,128 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chart 01 - X</title>
+    <title>🚀 Misiones de Astronautas</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
 
-        #chart {
-            overflow-y: auto;
-            height: 50%;
-        }
+      #chart {
+        overflow-y: auto;
+        height: 50%;
+      }
 
-        #chart svg {
-            height: 50%;
-            max-width: initial;
-        }
+      #chart svg {
+        height: 50%;
+        max-width: initial;
+      }
 
-        #worldmap{
+      #worldmap {
+      }
 
-        }
+      body {
+        background-color: black;
+        color: #f8f14e;
+        display: flex;
+        flex-direction: column;
+        font-family: "Prompt", "Roboto", sans-serif;
+      }
 
-        body{
-            background-color: black;
-            color: #f8f14e;
-            display: flex;
-            flex-direction: column;
-            font-family: 'Prompt', 'Roboto', sans-serif;
-        }
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+      }
 
-        main{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-        }
+      #title {
+        font-size: 50px;
+        font-weight: bold;
+        margin-top: 50px;
+      }
 
-        #title{
-            font-size: 50px;
-            font-weight: bold;
-            margin-top: 50px;
-        }
+      .info_text {
+        font-weight: bold;
+        font-size: 20px;
+        height: 30px;
+      }
 
-        .info_text{
-            font-weight: bold;
-            font-size: 20px;
-            height: 30px;
-        }
+      #info {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        margin: 20px;
+        width: 500px;
+      }
 
-        #info{
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            margin: 20px;
-            width: 500px;
-        }
+      #tree_chart.svg.g,
+      #tree_chart.svg.g.text {
+        stroke: unset;
+      }
 
-        #tree_chart.svg.g, #tree_chart.svg.g.text{
-            stroke:unset;
-        }
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        margin-bottom: 100px;
+      }
+      #footer_contents {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+      }
 
-        footer{
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            margin: 100px;
-        }
+      #footer_links{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        width: 400px;
+        height: 100%;
+      }
+
+      #footer_icons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        height: 100%;
+        gap: 20px;
+      }
+    
+      .icon{
+        height: 100%;
+      }
+
+      .icon_ref{
+        height: 100%;
+      }
+      
     </style>
-</head>
+  </head>
 
-<body onload="main()">
-
+  <body onload="main()">
     <main>
-        <h1 id="title"><b>Misiones de Astronautas</b></h1>
+      <h1 id="title"><b>Misiones de Astronautas</b></h1>
 
-        <div id="info">
-            <div class="info_text" id="nombre"></div>
-            <div class="info_text" id="nacionalidad"></div>
-            <div class="info_text" id="anio_mision"></div>
-            <div class="info_text" id="horas"></div>
-        </div>
-        
-        <div id="histogram_misions_per_year">
-            <center><div class="info_text">Cantidad de Misiones por Año</div></center>
-            <div id="hist_chart"></div>
-        </div>
+      <div id="info">
+        <div class="info_text" id="nombre"></div>
+        <div class="info_text" id="nacionalidad"></div>
+        <div class="info_text" id="anio_mision"></div>
+        <div class="info_text" id="horas"></div>
+      </div>
 
-        <div id="histogram_hours_per_year">
-            <center>
-                <div class="info_text">Horas de Misiones por año</div>
-            </center>
-            <div id="hist2_chart"></div>
-        </div>
+      <div id="histogram_misions_per_year">
+        <center>
+          <div class="info_text">Cantidad de Misiones por Año</div>
+        </center>
+        <div id="hist_chart"></div>
+      </div>
 
-        <div id="bar_gender_country">
-            <center>
-                <div class="info_text">Genero por Nacionalidad</div>
-            </center>
-            <div id="facet_chart"></div>
-        </div>
+      <div id="histogram_hours_per_year">
+        <center>
+          <div class="info_text">Horas de Misiones por año</div>
+        </center>
+        <div id="hist2_chart"></div>
+      </div>
 
-        <div id="tree">
-            <center><div class="info_text">Astronautas por país por año</div></center>
-            <div id="tree_chart"></div>
-            <script>
-                /* setTimeout(() => {
+      <div id="bar_gender_country">
+        <center>
+          <div class="info_text">Genero por Nacionalidad</div>
+        </center>
+        <div id="facet_chart"></div>
+      </div>
+
+      <div id="tree">
+        <center>
+          <div class="info_text">Astronautas por país por año</div>
+        </center>
+        <div id="tree_chart"></div>
+        <script>
+          /* setTimeout(() => {
                     console.log("AAA")
                     var g = document.querySelector('[aria-label="text"]')
                     g.style.stroke = "unset"
                 }, 1000); */
-            </script>
-        </div>
+        </script>
+      </div>
     </main>
 
     <footer>
-
-        <div id="footer_contents">
-            <h1>Integrantes</h1>
-            <p>Luca Mazzarello</p>
-            <p>Ignacio Pardo</p>
+      <div id="footer_contents">
+        <div id="footer_integrantes">
+          <h1>Integrantes</h1>
+          <p>Luca Mazzarello</p>
+          <p>Ignacio Pardo</p>
         </div>
-
+        <div id="footer_links">
+          <div id="footer_icons">
+            <a class="icon_ref" href="https://www.utdt.edu/">
+              <img class="icon" src="utdt.svg" alt="UTDT" />
+            </a>
+            <a class="icon_ref" href="https://github.com">
+              <img class="icon" src="gh.svg" alt="GitHub" />
+            </a>
+          </div>
+          <!-- <a href="https://observablehq.com/">Observable</a> -->
+        </div>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
@@ -135,6 +184,5 @@
     <script src="../dataviz_7/script.js"></script>
     <script src="../dataviz_8/script.js"></script>
     <script src="../dataviz_9/script.js"></script>
-</body>
-
+  </body>
 </html>
