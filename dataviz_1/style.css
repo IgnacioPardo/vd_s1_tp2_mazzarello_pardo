@@ -5,6 +5,12 @@ html {
     width: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
 }
 
 #chart {
@@ -36,20 +42,18 @@ main,
     flex-direction: column;
     align-items: center;
     margin: 20px;
-    height: 100%;
 }
 
 .hidden {
-    display: none !important;
-    visibility: hidden;
     opacity: 0;
 }
 
-.visibile {
-    display: block;
-    visibility: visible;
+.visible {
     opacity: 1;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-out;
+    -webkit-transition: opacity 1s ease-out;
+    -moz-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
 }
 
 #title {
@@ -97,6 +101,7 @@ footer {
     padding-bottom: 100px;
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
+    border-radius: 12px 12px 0 0;
 }
 
 #footer_contents {
@@ -105,6 +110,8 @@ footer {
     align-items: flex-end;
     flex-wrap: nowrap;
     justify-content: space-around;
+
+    padding-top: 50px;
 }
 
 #footer_links {
@@ -144,7 +151,7 @@ footer {
     margin-top: 100px;
 }
 
-#start {
+#start_btn {
     border: #f8f14e 2px solid;
     border-style: outset;
     color: #f8f14e;
@@ -157,15 +164,10 @@ footer {
     cursor: pointer;
 }
 
-#start:hover {
+#start_btn:hover {
+    
     background-color: #f8f14e;
     color: black;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
     cursor: pointer;
 }
 

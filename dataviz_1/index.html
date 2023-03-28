@@ -19,9 +19,9 @@
     </div>
 
     <main>
-      <h1 id="title"><b>Misiones de Astronautas</b></h1>
-      <div id="intro">
-        <button id="start" onclick="start()">🚀 Explorar</button>
+      <h1 id="title"></h1>
+      <div id="intro" class="hidden">
+        <button id="start_btn" onclick="start()">🚀 Explorar</button>
       </div>
       <div id="playground" class="hidden">
         
@@ -60,13 +60,6 @@
             <div class="info_text">Astronautas por país por año</div>
           </center>
           <div id="tree_chart"></div>
-          <script>
-            /* setTimeout(() => {
-                        console.log("AAA")
-                        var g = document.querySelector('[aria-label="text"]')
-                        g.style.stroke = "unset"
-                    }, 1000); */
-          </script>
         </div>
       </div>
     </main>
@@ -91,125 +84,23 @@
         </div>
       </div>
     </footer>
+    
+    <!-- import libraries -->
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
-    <script src="script.js"></script>
-    <script src="../dataviz_6/script.js"></script>
-    <script src="../dataviz_7/script.js"></script>
-    <script src="../dataviz_8/script.js"></script>
-    <script src="../dataviz_9/script.js"></script>
     
-    <script>
 
-        var selected_dot;
-
-        function check_dot(dot){
-            console.log(dot);
-            selected_dot.classList.remove("selected_dot");
-            selected_dot.classList.add("dot");
-
-            dot.classList.remove("dot");
-            dot.classList.add("selected_dot");
-
-            selected_dot = dot;
-        }
-
-        function navigate(e){
-            check_dot(e);
-            
-            var id = e.id.split("_dot")[0];
-            document.getElementById(id).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        function auto_check_dots(){
-            var observer = new IntersectionObserver(function (entries) {
-                if (entries[0].isIntersecting === true) {
-                    
-                    var id = entries[0].target.id;
-                    var dot = document.getElementById(id + "_dot");
-                    check_dot(dot);
-
-                } else {
-                    console.log('Item has just DISAPPEARED!');
-                }
-            }, { threshold: [0] });
-
-            var charts = document.querySelectorAll(".chart");
-            charts.forEach(chart => {               
-                observer.observe(chart);
-            });
-            
-            /* var charts = ["#worldTour", "#histogram_misions_per_year", "#histogram_hours_per_year", "#bar_gender_country", "#tree"];
-
-            charts.forEach(chart => {
-                observer.observe(document.querySelector(chart));
-            }); */
-        }
-
-        function launchFullScreen(element) {
-            if (element.requestFullScreen) {
-                element.requestFullScreen();
-            } else if (element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullScreen) {
-                element.webkitRequestFullScreen();
-            }
-        }
-
-        var state = false;
-
-        function start() {
-            if (!state) {
-                new Audio("audio.mp3").play();
-                launchFullScreen(document.documentElement);
-                var intro = document.getElementById("intro");
-                var playground = document.getElementById("playground");
-                var footer = document.querySelector("footer");
-
-                var dots = document.getElementById("dots");
-
-                // animate playground opacity
-
-                intro.style.display = "none";
-
-                playground.classList.remove("hidden");
-                playground.classList.add("visible");
-
-
-                footer.classList.remove("hidden");
-                footer.classList.add("visible");
-
-                dots.classList.remove("hidden");
-                dots.classList.add("visible");
-
-                state = true;
-
-                plot().then(() => {
-                    
-                    dots = document.querySelector("#dots");
-                    first_dot = dots.children[0];
-                    selected_dot = first_dot;
-                    navigate(selected_dot);
-                    auto_check_dots(); 
-                    
-                    console.log("PLOTED");
-                });
-
-            }
-        }
-
-        async function plot(){
-            plotWorldTour();
-            plotHist();
-            plotHist2();
-            plotTree();
-            plotFacet();
-        }
-    </script>
+    <!-- plot dependencies -->
+    <script src="./world_tour.js"></script>
+    <script src="../dataviz_6/hours_per_year.js"></script>
+    <script src="../dataviz_7/misions_per_year.js"></script>
+    <script src="../dataviz_8/tree.js"></script>
+    <script src="../dataviz_9/facet.js"></script>
+    
+    <!-- main script -->
+    <script src="script.js"></script>
   </body>
 </html>
