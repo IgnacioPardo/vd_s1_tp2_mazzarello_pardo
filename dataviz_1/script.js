@@ -59,14 +59,32 @@ function auto_check_dots() {
   });
 }
 
-function launchFullScreen(element) {
-  if (element.requestFullScreen) {
-    element.requestFullScreen();
-  } else if (element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if (element.webkitRequestFullScreen) {
-    element.webkitRequestFullScreen();
+function launchFullScreen() {
+  if (document.documentElement.requestFullScreen) {
+    document.documentElement.requestFullScreen();
+  } else if (document.documentElement.mozRequestFullScreen) {
+    document.documentElement.mozRequestFullScreen();
+  } else if (document.documentElement.webkitRequestFullScreen) {
+    document.documentElement.webkitRequestFullScreen();
   }
+}
+
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    }
+}
+
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        launchFullScreen();
+    } else {
+        exitFullscreen();
+    }
 }
 
 var state = false;
@@ -81,7 +99,7 @@ function start() {
     new Audio("audio.mp3").play();
 
     /* setTimeout(() => {
-                    launchFullScreen(document.documentElement);
+                    launchFullScreen();
                 }, 1000); */
 
     var intro = document.getElementById("intro");
@@ -98,7 +116,7 @@ function start() {
 
     state = true;
 
-    plot().then(() => {
+    plotCharts().then(() => {
       dots = document.querySelector("#dots");
       first_dot = dots.children[0];
       selected_dot = first_dot;
@@ -109,10 +127,13 @@ function start() {
   }
 }
 
-async function plot() {
-  plotWorldTour();
-  plotHist();
-  plotHist2();
-  plotTree();
-  plotFacet();
+async function plotCharts() {
+
+    const data = d3.csv("../vd_astronautas/astronautas.csv", d3.autoType);
+
+    plotWorldTour(data);
+    plotHist(data);
+    plotHist2(data);
+    plotTree(data);
+    plotFacet(data);
 }

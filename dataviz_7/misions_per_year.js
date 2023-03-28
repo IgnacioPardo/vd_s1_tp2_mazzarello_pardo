@@ -1,5 +1,5 @@
-function plotHist(){
-    d3.csv("../vd_astronautas/astronautas.csv", d3.autoType).then(astronautas => {
+function plotHist(dataPromise) {
+    dataPromise.then(astronautas => {
         //count misions per year
         console.log(astronautas)
         count = d3.rollup(astronautas, v => v.length, d => d.anio_mision)

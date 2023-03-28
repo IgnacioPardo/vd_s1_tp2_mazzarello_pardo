@@ -1,5 +1,5 @@
-function plotFacet() {
-  d3.csv("../vd_astronautas/astronautas.csv", d3.autoType).then(
+function plotFacet(dataPromise) {
+  dataPromise.then(
     (astronautas) => {
       //count misions per year
       console.log(astronautas);

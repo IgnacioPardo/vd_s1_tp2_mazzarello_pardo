@@ -1,5 +1,5 @@
-function plotTree(){
-    d3.csv("../vd_astronautas/astronautas.csv", d3.autoType).then(astronautas => {
+function plotTree(dataPromise) {
+    dataPromise.then(astronautas => {
         //count misions per year
         console.log(astronautas)
         count = [... new Set(d3.rollup(astronautas, v => v.length, d => d.anio_mision))]

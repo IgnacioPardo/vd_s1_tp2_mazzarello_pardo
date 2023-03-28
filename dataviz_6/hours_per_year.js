@@ -1,5 +1,5 @@
-function plotHist2(){
-    d3.csv("../vd_astronautas/astronautas.csv", d3.autoType).then(astronautas => {
+function plotHist2(dataPromise) {
+    dataPromise.then(astronautas => {
         // count total hours per year
         let hoursPerYear = d3.rollup(astronautas, v => d3.sum(v, d => d.mision_hs), d => d.anio_mision)
         data = Array.from(hoursPerYear).map(([key, value]) => {

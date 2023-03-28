@@ -1,6 +1,6 @@
-async function plotWorldTour(){
+async function plotWorldTour(dataPromise){
 
-    var astronautas = await d3.csv("../vd_astronautas/astronautas.csv", d3.autoType)
+    var astronautas = await dataPromise
     console.log(astronautas)
 
     var width = 500;
