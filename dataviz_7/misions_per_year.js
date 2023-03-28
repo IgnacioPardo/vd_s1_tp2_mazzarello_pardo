@@ -1,4 +1,4 @@
-function plotHist(dataPromise) {
+function plotHist(dataPromise, divId) {
     dataPromise.then(astronautas => {
         //count misions per year
         console.log(astronautas)
@@ -14,7 +14,7 @@ function plotHist(dataPromise) {
 
         console.log(data)
 
-        let chart = Plot.plot({
+        let chart = addTooltips(Plot.plot({
             marks: [
                 Plot.barY(data, {
                     x: 'anio_mision',
@@ -43,8 +43,11 @@ function plotHist(dataPromise) {
                 color: '#f8f14e',
                 padding: '50px',
             },
+        }),
+        {
+            fill: '#f8f14e',
         })
 
-        d3.select('#hist_chart').append(() => chart)
+        d3.select(divId).append(() => chart)
     })
 }

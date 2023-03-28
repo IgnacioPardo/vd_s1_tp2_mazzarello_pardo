@@ -16,7 +16,16 @@ button {
 #chart {
     overflow-y: auto;
     height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
 }
+
+/* #hist2_chart{
+    width: 800px;
+} */
 
 #chart svg {
     height: 50%;

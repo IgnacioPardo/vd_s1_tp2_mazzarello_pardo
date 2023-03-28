@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart 04 - X</title>
+    <style>
+      #chart{
+        overflow-y:auto;
+      }
+      #chart svg{
+        max-width: initial;
+      }
+    </style>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
+    <script src="okupa.js"></script>
+    <script src="../dataviz_10/tooltip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htl@0.3.1/dist/htl.min.js"></script>
+
+  </head>
+  <body onload="main()">
+    
+
+    <div id="new_chart"></div>
+    <script>
+      function main(){
+        const data = d3.csv("../vd_astronautas/astronautas.csv", d3.autoType);
+        plotOkupas(data, "#new_chart");
+      }
+    </script>
+  </body>
+</html>

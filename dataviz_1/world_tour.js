@@ -1,4 +1,4 @@
-async function plotWorldTour(dataPromise){
+async function plotWorldTour(dataPromise, divId){
 
     var astronautas = await dataPromise
     console.log(astronautas)
@@ -35,7 +35,7 @@ async function plotWorldTour(dataPromise){
     var vx = 0.001, vy = -0.001;
     //define context with width and height
     // var context = d3.select("body").append("canvas");
-    var context = d3.select("#worldTour").append("canvas").attr("width", width).attr("height", height).attr("id", "worldmap").node().getContext("2d");
+    var context = d3.select(divId).append("canvas").attr("width", width).attr("height", height).attr("id", "worldmap").node().getContext("2d");
 
     // var context = DOM.context2d(width, height);
     var path = d3.geoPath(projection, context);

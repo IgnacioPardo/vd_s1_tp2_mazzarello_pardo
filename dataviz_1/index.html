@@ -11,11 +11,6 @@
   <body>
 
     <div id="dots" class="hidden">
-        <div class="dot" id="worldTour_dot" onclick="navigate(this)"></div>
-        <div class="dot" id="histogram_misions_per_year_dot" onclick="navigate(this)"></div>
-        <div class="dot" id="histogram_hours_per_year_dot" onclick="navigate(this)"></div>
-        <div class="dot" id="bar_gender_country_dot" onclick="navigate(this)"></div>
-        <div class="dot" id="tree_dot" onclick="navigate(this)"></div>
     </div>
 
     <!-- <div id="corner_btn">
@@ -63,6 +58,13 @@
           <div id="facet_chart"></div>
         </div>
 
+        <div id="line_ocupacion_year" class="chart">
+          <center>
+            <div class="info_text">Cantidad de astronautas por ocupación por año</div>
+          </center>
+          <div id="line_chart"></div>
+        </div>
+
         <div id="tree" class="chart">
           <center>
             <div class="info_text">Astronautas por país por año</div>
@@ -99,14 +101,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htl@0.3.1/dist/htl.min.js"></script>
     
-
+    <script src="../dataviz_10/tooltip.js"></script>
+    
     <!-- plot dependencies -->
     <script src="./world_tour.js"></script>
     <script src="../dataviz_6/hours_per_year.js"></script>
     <script src="../dataviz_7/misions_per_year.js"></script>
     <script src="../dataviz_8/tree.js"></script>
     <script src="../dataviz_9/facet.js"></script>
+    <script src="../dataviz_11/hsPerYear.js"></script>
+    <script src="../dataviz_12/okupa.js"></script>
     
     <!-- main script -->
     <script src="script.js"></script>

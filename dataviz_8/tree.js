@@ -1,4 +1,4 @@
-function plotTree(dataPromise) {
+function plotTree(dataPromise, divId) {
     dataPromise.then(astronautas => {
         //count misions per year
         console.log(astronautas)
@@ -90,9 +90,11 @@ function plotTree(dataPromise) {
             },
         })
 
-        d3.select('#tree_chart').append(() => chart)
+        d3.select(divId).append(() => chart)
 
-        var g = document.querySelector('[aria-label="text"]')
-        g.style.stroke = "black"
+        var g = document.querySelectorAll('[aria-label="text"]')
+        g.forEach((d) => {
+            d.style.stroke = "black"
+        })
     })
 }

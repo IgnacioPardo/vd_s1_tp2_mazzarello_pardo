@@ -1,4 +1,4 @@
-function plotHist2(dataPromise) {
+function plotHist2(dataPromise, divId) {
     dataPromise.then(astronautas => {
         // count total hours per year
         let hoursPerYear = d3.rollup(astronautas, v => d3.sum(v, d => d.mision_hs), d => d.anio_mision)
@@ -40,6 +40,6 @@ function plotHist2(dataPromise) {
                 padding: '50px',
             },
         })
-        d3.select('#hist2_chart').append(() => chart)
+        d3.select(divId).append(() => chart)
     })
 }

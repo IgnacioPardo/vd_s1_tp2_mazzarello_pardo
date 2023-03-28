@@ -1,7 +1,7 @@
 window.document.onload = page_load();
 
 function page_load() {
-    title_animation();
+  title_animation();
 }
 
 function title_animation() {
@@ -70,21 +70,21 @@ function launchFullScreen() {
 }
 
 function exitFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-    }
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  }
 }
 
 function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-        launchFullScreen();
-    } else {
-        exitFullscreen();
-    }
+  if (!document.fullscreenElement) {
+    launchFullScreen();
+  } else {
+    exitFullscreen();
+  }
 }
 
 var state = false;
@@ -99,8 +99,8 @@ function start() {
     new Audio("audio.mp3").play();
 
     setTimeout(() => {
-                    launchFullScreen();
-                }, 1000);
+      launchFullScreen();
+    }, 1000);
 
     var intro = document.getElementById("intro");
     var playground = document.getElementById("playground");
@@ -117,6 +117,16 @@ function start() {
     state = true;
 
     plotCharts().then(() => {
+
+      document.querySelectorAll(".chart").forEach((chart) => {
+        var char_id = chart.id;
+        var newDot = document.createElement("div");
+        newDot.classList.add("dot");
+        newDot.id = char_id + "_dot";
+        newDot.setAttribute("onclick", "navigate(this)");
+        dots.appendChild(newDot);
+      });
+
       dots = document.querySelector("#dots");
       first_dot = dots.children[0];
       selected_dot = first_dot;
@@ -128,12 +138,12 @@ function start() {
 }
 
 async function plotCharts() {
+  const data = d3.csv("../vd_astronautas/astronautas.csv", d3.autoType);
 
-    const data = d3.csv("../vd_astronautas/astronautas.csv", d3.autoType);
-
-    plotWorldTour(data);
-    plotHist(data);
-    plotHist2(data);
-    plotTree(data);
-    plotFacet(data);
+  plotWorldTour(data, "#worldTour");
+  plotHist(data, "#hist_chart");
+  plotHsPerYear(data, "#hist2_chart");
+  plotTree(data, "#tree_chart");
+  plotFacet(data, "#facet_chart");
+  plotOkupas(data, "#line_chart");
 }

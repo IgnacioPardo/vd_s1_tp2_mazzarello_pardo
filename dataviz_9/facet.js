@@ -1,4 +1,4 @@
-function plotFacet(dataPromise) {
+function plotFacet(dataPromise, divId) {
   dataPromise.then(
     (astronautas) => {
       //count misions per year
@@ -47,7 +47,7 @@ function plotFacet(dataPromise) {
         },
       });
 
-      d3.select("#facet_chart").append(() => chart);
+      d3.select(divId).append(() => chart);
     }
   );
 }
