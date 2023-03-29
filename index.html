@@ -18,11 +18,18 @@
     </div> -->
 
     <main>
+      <!-- Title -->
       <h1 id="title"></h1>
+
+      <!-- Start Button -->
       <div id="intro" class="hidden">
         <button id="start_btn" onclick="start()">🚀 Explorar</button>
       </div>
+
+      <!-- Playground: Plot visualization -->
       <div id="playground" class="hidden">
+
+        <!-- Orthographic projection of World Map, rotates per country -->
         <div id="worldTour" class="chart">
             <div id="worldTour_text">
                 <div class="info_text" id="nombre"></div>
@@ -36,6 +43,7 @@
             </div>
         </div>
 
+        <!-- Histogram of missions per year -->
         <div id="histogram_misions_per_year" class="chart">
           <center>
             <div class="info_text">Cantidad de Misiones por Año</div>
@@ -43,6 +51,7 @@
           <div id="hist_chart"></div>
         </div>
 
+        <!-- Histogram of hours per year per country -->
         <div id="histogram_hours_per_year" class="chart">
           <center>
             <div class="info_text">Horas de Misiones por año</div>
@@ -50,6 +59,7 @@
           <div id="hist2_chart"></div>
         </div>
 
+        <!-- Facet bar graph of gender count per country -->
         <div id="bar_gender_country" class="chart">
           <center>
             <div class="info_text">Genero por Nacionalidad</div>
@@ -57,6 +67,7 @@
           <div id="facet_chart" class="chart_container"></div>
         </div>
 
+        <!-- Line graph of occupation count per year -->
         <div id="line_ocupacion_year" class="chart">
           <center>
             <div class="info_text">Cantidad de astronautas por ocupación por año</div>
@@ -64,6 +75,7 @@
           <div id="line_chart" class="chart_container"></div>
         </div>
 
+        <!-- Tree map of astronauts per country per year -->
         <div id="tree" class="chart">
           <center>
             <div class="info_text">Astronautas por país por año</div>
