@@ -1,31 +1,37 @@
 function plotOkupas(dataPromise, divId) {
   dataPromise.then(astronautas => {
-    // count total hours per year
-    //let hoursPerYear = d3.rollup(astronautas, v => d3.sum(v, d => d.mision_hs), d => d.anio_mision)
-
-
-    // Ammount of hs per year per country
 
     const data = {}
 
-    count = d3.rollup(astronautas, v => v.length, d => d.anio_mision)
-    years = count.keys()
-
+    // Iterate over the astronauts
     for (astronaut of astronautas) {
+
+      // For each astronaut, get the year of the mission
+      // and the occupation
+
+      // If the year is not in the data object, create it
       year = astronaut.anio_mision
       if (!data[year]) {
         data[year] = {}
       }
+
+      // If the occupation is not in the data object, create it
+      // and set it to 1
+      // If the occupation is in the data object, increment it
       if (data[year][astronaut.ocupacion]) {
         data[year][astronaut.ocupacion] += 1
       } else {
         data[year][astronaut.ocupacion] = 1
       }
     }
-    // console.log(data)
+    
     const data2 = []
+
+    // Iterate over the data object
     for (year in data) {
+      // Iterate over the occupations
       for (ocupacion in data[year]) {
+        // Add year, occupation and count to the data2 array
         data2.push({
           anio_mision: Number(year),
           ocupacion: ocupacion,
@@ -33,14 +39,12 @@ function plotOkupas(dataPromise, divId) {
         })
       }
     }
-    console.log(data2)
 
-    /* data = Array.from(hoursPerYear).map(([key, value]) => {
-      return {
-        anio_mision: key,
-        mision_hs_x_anio: value
-      }
-    }); */
+    // Plot the data
+    // X axis: year of the mission
+    // Y axis: quantity of astronauts
+    // Color: occupation
+    // On hover, the title of each line is the occupation
     let chart = addTooltips(Plot.plot({
       marks: [
         Plot.line(data2, {
@@ -57,12 +61,6 @@ function plotOkupas(dataPromise, divId) {
           size: 10,
           title: 'ocupacion'
         }),
-        /* Plot.text(data2, {
-          x: 'anio_mision',
-          y: 'cantidad',
-          text: 'ocupacion',
-          dy: -4,
-        }), */
       ],
       x: {
         label: 'Año de misión',
@@ -82,6 +80,7 @@ function plotOkupas(dataPromise, divId) {
         background: 'black',
         color: '#f8f14e',
         padding: '50px',
+        width: '86.5%',
       },
     }),
       {

@@ -1,10 +1,9 @@
 function plotHist(dataPromise, divId) {
     dataPromise.then(astronautas => {
         //count misions per year
-        // console.log(astronautas)
         count = d3.rollup(astronautas, v => v.length, d => d.anio_mision)
-        // console.log(count)
         
+        // convert to array
         data = Array.from(count).map(([key, value]) => {
             return {
                 anio_mision: key,
@@ -12,8 +11,10 @@ function plotHist(dataPromise, divId) {
             }
         });
 
-        // console.log(data)
-
+        
+        // Plot the data
+        // X axis: year of the mission
+        // Y axis: quantity of missions
         let chart = addTooltips(Plot.plot({
             marks: [
                 Plot.barY(data, {

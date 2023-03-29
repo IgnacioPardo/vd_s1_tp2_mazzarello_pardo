@@ -2,6 +2,11 @@ function plotFacet(dataPromise, divId) {
   dataPromise.then(
     (astronautas) => {
 
+      // Plot the data
+      // X axis: year of the mission
+      // Y axis: quantity of astronauts
+      // Facet: country
+      // Plot the data per gender
       let chart = Plot.plot({
         x: {
           tickFormat: (d) =>
@@ -17,6 +22,10 @@ function plotFacet(dataPromise, divId) {
           x: "nacionalidad",
           label: "Nacionalidad",
         },
+        fx: {
+          label: "Proporción",
+          tickRotate: 10,
+        },
         marks: [
           Plot.barY(
             astronautas,
@@ -31,8 +40,7 @@ function plotFacet(dataPromise, divId) {
           fontFamily: "sans-serif",
           background: "black",
           color: "#f8f14e",
-          padding: "50px",
-          width: "80%",
+          width: "100%",
         },
       });
 
