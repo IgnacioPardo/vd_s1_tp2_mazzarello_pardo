@@ -1,5 +1,5 @@
 d3.csv('../vd_astronautas/astronautas.csv', d3.autoType).then(data => {
-    console.log(data)
+    // console.log(data)
     // Guardamos el svg generado en la variable chart
     let chart = Plot.plot({
       height: 1000,

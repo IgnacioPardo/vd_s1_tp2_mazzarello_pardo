@@ -1,7 +1,7 @@
 function plotTree(dataPromise, divId) {
     dataPromise.then(astronautas => {
         //count misions per year
-        console.log(astronautas)
+        // console.log(astronautas)
         count = [... new Set(d3.rollup(astronautas, v => v.length, d => d.anio_mision))]
         //console.log(count)
         
@@ -62,7 +62,7 @@ function plotTree(dataPromise, divId) {
             }
         })
 
-        console.log(data_obj)
+        // console.log(data_obj)
             
         /* data = Array.from(astronautas).map((d) => {
             return {

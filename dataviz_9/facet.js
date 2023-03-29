@@ -1,17 +1,6 @@
 function plotFacet(dataPromise, divId) {
   dataPromise.then(
     (astronautas) => {
-      //count misions per year
-      console.log(astronautas);
-
-      data = [];
-
-      count = d3.rollup(
-        astronautas,
-        (v) => v.length,
-        (d) => d.anio_mision,
-        (d) => d.genero
-      );
 
       let chart = Plot.plot({
         x: {

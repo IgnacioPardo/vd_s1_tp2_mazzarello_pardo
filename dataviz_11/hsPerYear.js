@@ -37,7 +37,7 @@ function plotHsPerYear(dataPromise, divId) {
         })
       }
     }
-    console.log(data2)
+    // console.log(data2)
     
     /* data = Array.from(hoursPerYear).map(([key, value]) => {
       return {

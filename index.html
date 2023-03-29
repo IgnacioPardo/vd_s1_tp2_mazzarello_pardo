@@ -1,19 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Links to the other charts:
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🚀 Misiones de Astronautas</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
 
-    <ul>    
-        <li><a href="dataviz_1/index.html">Chart 01</a></li>
-        <li><a href="dataviz_2/index.html">Chart 02</a></li>
-        <li><a href="dataviz_3/index.html">Chart 03</a></li>
-        <li><a href="dataviz_4/index.html">Chart 04</a></li>
-    </ul>
-</body>
+  <body>
+
+    <div id="dots" class="hidden">
+    </div>
+
+    <!-- <div id="corner_btn">
+        <input type="checkbox" id="checkbox" onclick="toggleFullScreen()"/>
+    </div> -->
+
+    <main>
+      <h1 id="title"></h1>
+      <div id="intro" class="hidden">
+        <button id="start_btn" onclick="start()">🚀 Explorar</button>
+      </div>
+      <div id="playground" class="hidden">
+        
+        <div id="worldTour" class="chart">
+            <div id="worldTour_text">
+                <div class="info_text" id="nombre"></div>
+                <div class="info_text" id="nacionalidad"></div>
+                <div class="info_text" id="anio_mision"></div>
+                <div class="info_text" id="horas"></div>
+
+                <div class="info_text" id="dataset_link">
+                    <span>🔗</span> <a id="astronautas_gh" href="https://github.com/visualizacion-de-datos-utdt/vd_astronautas/tree/20763419f7b0d62c6bae8fb17d92cbb8e3c79674" target="_blank">Dataset</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="histogram_misions_per_year" class="chart">
+          <center>
+            <div class="info_text">Cantidad de Misiones por Año</div>
+          </center>
+          <div id="hist_chart"></div>
+        </div>
+
+        <div id="histogram_hours_per_year" class="chart">
+          <center>
+            <div class="info_text">Horas de Misiones por año</div>
+          </center>
+          <div id="hist2_chart"></div>
+        </div>
+
+        <div id="bar_gender_country" class="chart">
+          <center>
+            <div class="info_text">Genero por Nacionalidad</div>
+          </center>
+          <div id="facet_chart"></div>
+        </div>
+
+        <div id="line_ocupacion_year" class="chart">
+          <center>
+            <div class="info_text">Cantidad de astronautas por ocupación por año</div>
+          </center>
+          <div id="line_chart"></div>
+        </div>
+
+        <div id="tree" class="chart">
+          <center>
+            <div class="info_text">Astronautas por país por año</div>
+          </center>
+          <div id="tree_chart"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="hidden">
+      <div id="footer_contents">
+        <div id="footer_integrantes">
+          <h1>Integrantes</h1>
+          <p>Luca Mazzarello</p>
+          <p>Ignacio Pardo</p>
+        </div>
+        <div id="footer_links">
+          <div id="footer_icons">
+            <a class="icon_ref" href="https://www.utdt.edu/">
+              <img class="icon" src="assets/utdt.svg" alt="UTDT" />
+            </a>
+            <a class="icon_ref" href="https://github.com/IgnacioPardo/vd_s1_tp2_mazzarello_pardo">
+              <img class="icon" src="assets/gh.svg" alt="GitHub" />
+            </a>
+          </div>
+          <!-- <a href="https://observablehq.com/">Observable</a> -->
+        </div>
+      </div>
+    </footer>
+    
+    <!-- import libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htl@0.3.1/dist/htl.min.js"></script>
+    
+    <script src="./assets/tooltip.js"></script>
+    
+    <!-- plot dependencies -->
+    <script src="./assets/world_tour.js"></script>
+    <script src="./dataviz_6/hours_per_year.js"></script>
+    <script src="./dataviz_7/misions_per_year.js"></script>
+    <script src="./dataviz_8/tree.js"></script>
+    <script src="./dataviz_9/facet.js"></script>
+    <script src="./dataviz_11/hsPerYear.js"></script>
+    <script src="./dataviz_12/okupa.js"></script>
+    
+    <!-- main script -->
+    <script src="assets/script.js"></script>
+  </body>
 </html>

@@ -1,7 +1,7 @@
 async function plotWorldTour(dataPromise, divId){
 
     var astronautas = await dataPromise
-    console.log(astronautas)
+    // console.log(astronautas)
 
     var width = 500;
     var height = 500;
@@ -12,20 +12,20 @@ async function plotWorldTour(dataPromise, divId){
 
     var world = await d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
 
-    console.log(world)
+    // console.log(world)
     
     var land = topojson.feature(world, world.objects.land);
-    console.log(land)
+    // console.log(land)
 
     var borders = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);
-    console.log(borders)
+    // console.log(borders)
     
     var countries = topojson.feature(world, world.objects.countries).features;
     //console.log(countries)
 
-    countries.forEach(d => {
-        console.log(d.properties.name);
-    })
+    // countries.forEach(d => {
+    //     console.log(d.properties.name);
+    // })
 
     var sphere = ({ type: "Sphere" });
     console.log(sphere)
@@ -41,7 +41,7 @@ async function plotWorldTour(dataPromise, divId){
     var path = d3.geoPath(projection, context);
 
     // var path = d3.geo.path().projection(projection);
-    console.log(context.canvas)
+    // console.log(context.canvas)
     
     function render(country, arc) {
         context.clearRect(0, 0, width, height);
@@ -94,10 +94,10 @@ async function plotWorldTour(dataPromise, divId){
         }
 
         var country = countries.find(c => c.properties.name === ast_pais)
-        if (country == undefined){
-            console.log(ast_pais)
-            continue;
-        }
+        // if (country == undefined){
+        //     console.log(ast_pais)
+        //     continue;
+        // }
         //console.log({ast_pais, country})
         
         //document.querySelector("#nacionalidad").innerHTML = ast_pais;

@@ -22,7 +22,7 @@ function plotOkupas(dataPromise, divId) {
         data[year][astronaut.ocupacion] = 1
       }
     }
-    console.log(data)
+    // console.log(data)
     const data2 = []
     for (year in data) {
       for (ocupacion in data[year]) {
