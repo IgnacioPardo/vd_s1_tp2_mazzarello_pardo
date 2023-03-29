@@ -28,7 +28,7 @@ async function plotWorldTour(dataPromise, divId){
     // })
 
     var sphere = ({ type: "Sphere" });
-    console.log(sphere)
+    // console.log(sphere)
     var tilt = 20;
 
     var projection = d3.geoOrthographic().fitExtent([[inset, inset], [width - inset, height - inset]], outline)

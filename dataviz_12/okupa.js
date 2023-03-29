@@ -33,7 +33,7 @@ function plotOkupas(dataPromise, divId) {
         })
       }
     }
-    console.log(data2)
+    // console.log(data2)
 
     /* data = Array.from(hoursPerYear).map(([key, value]) => {
       return {
@@ -82,6 +82,7 @@ function plotOkupas(dataPromise, divId) {
         background: 'black',
         color: '#f8f14e',
         padding: '50px',
+        width: '86.5%',
       },
     }),
       {

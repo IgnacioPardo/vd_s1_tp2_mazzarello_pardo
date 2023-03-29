@@ -36,6 +36,8 @@ function navigate(e) {
   var id = e.id.split("_dot")[0];
   document.getElementById(id).scrollIntoView({
     behavior: "smooth",
+    inline: 'center',
+    block: 'center',
   });
 }
 

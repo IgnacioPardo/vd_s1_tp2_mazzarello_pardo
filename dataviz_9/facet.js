@@ -31,8 +31,7 @@ function plotFacet(dataPromise, divId) {
           fontFamily: "sans-serif",
           background: "black",
           color: "#f8f14e",
-          padding: "50px",
-          width: "80%",
+          width: "100%",
         },
       });
 
