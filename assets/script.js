@@ -136,7 +136,7 @@ function start() {
 }
 
 async function plotCharts() {
-  const data = d3.csv("vd_astronautas/astronautas.csv", d3.autoType);
+  const data = d3.csv("./vd_astronautas/astronautas.csv", d3.autoType);
 
   plotWorldTour(data, "#worldTour");
   plotHist(data, "#hist_chart");
