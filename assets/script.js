@@ -20,7 +20,7 @@ function title_animation() {
 var selected_dot;
 
 function check_dot(dot) {
-  console.log(dot);
+  // console.log(dot);
   selected_dot.classList.remove("selected_dot");
   selected_dot.classList.add("dot");
 
@@ -94,7 +94,7 @@ function animateShow(element) {
 
 function start() {
   if (!state) {
-    new Audio("audio.mp3").play();
+    new Audio("assets/audio.mp3").play();
 
     setTimeout(() => {
       launchFullScreen();
