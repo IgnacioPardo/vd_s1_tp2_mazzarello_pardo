@@ -113,7 +113,7 @@ button {
     margin: 20px;
     width: 900px;
     gap: unset;
-    border-radius: 12px 270px 270px 12px !important;
+    border-radius: 12px 500px 500px 12px !important;
 }
 
 #worldTour_text {
@@ -123,6 +123,12 @@ button {
     margin: 20px;
     width: 400px;
     gap: unset;
+}
+
+#worldTour_text .description_text{
+    margin-top: 15px;
+    margin-bottom:15px;
+    margin-left: 10px;
 }
 
 #tree_chart.svg.g,
@@ -280,8 +286,12 @@ footer {
     cursor: pointer;
 }
 
+#worldmap{
+    margin: 20px;
+}
+
 #dataset_link{
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 #dataset_link a{

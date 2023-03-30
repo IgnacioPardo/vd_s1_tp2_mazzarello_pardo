@@ -36,7 +36,13 @@
                 <div class="info_text" id="nacionalidad"></div>
                 <div class="info_text" id="anio_mision"></div>
                 <div class="info_text" id="horas"></div>
-
+                <div class="description_text" id="information">
+                    <p>
+                        En este mapa podemos visualizar los países que han enviado astronautas al espacio,
+                        junto con los nombres de los astronautas, las horas de misión y el año de cada una de
+                        las expediciones.
+                    </p>
+                </div>
                 <div class="info_text" id="dataset_link">
                     <span>🔗</span> <a id="astronautas_gh" href="https://github.com/visualizacion-de-datos-utdt/vd_astronautas/tree/20763419f7b0d62c6bae8fb17d92cbb8e3c79674" target="_blank">Dataset</a>
                 </div>
@@ -48,6 +54,14 @@
           <center>
             <div class="info_text">Cantidad de Misiones por Año</div>
           </center>
+          <div class="description_text" id="information">
+            <p>
+                En este histograma podemos visualizar cómo ha ido cambiando la cantidad de misiones totales a <br>
+                lo largo de los años. Observando el gráfico, podemos notar que la cantidad ha ido disminuyendo <br>
+                a lo largo del tiempo, alcanzando su valor mínimo en 2019. Además, se observa un aumento en el <br>
+                número de misiones de un año al siguiente únicamente en el año 2016.
+            </p>
+            </div>
           <div id="hist_chart"></div>
         </div>
 
@@ -56,7 +70,14 @@
           <center>
             <div class="info_text">Horas de Misiones por año</div>
           </center>
-          <div id="hist2_chart"></div>
+          <div class="description_text" id="information">
+            <p>
+                En este gráfico de calor se puede visualizar la cantidad de horas de misiones realizadas por <br>
+                cada país en cada año de la década pasada. Se destaca que Estados Unidos y Rusia fueron los <br>
+                únicos países que llevaron a cabo misiones en todos los años de la década anterior.
+            </p>
+          </div>
+        <div id="hist2_chart"></div>  
         </div>
 
         <!-- Facet bar graph of gender count per country -->
@@ -64,6 +85,14 @@
           <center>
             <div class="info_text">Genero por Nacionalidad</div>
           </center>
+          <div class="description_text" id="information">
+            <p>
+                Este gráfico muestra el porcentaje de hombres y mujeres enviados al espacio por cada país, <br>
+                en relación con el total de astronautas enviados. Se puede observar que en la mayoría de los <br>
+                países el porcentaje de hombres es mayor que el de mujeres, siendo Estados Unidos, Rusia, China, <br>
+                Japón e Italia los únicos países que han enviado mujeres al espacio
+            </p>
+            </div>
           <div id="facet_chart" class="chart_container"></div>
         </div>
 
@@ -72,6 +101,15 @@
           <center>
             <div class="info_text">Cantidad de astronautas por ocupación por año</div>
           </center>
+          <div class="description_text" id="information">
+            <p>
+                En el gráfico de líneas presentado abajo, podemos observar la cantidad total de astronautas <br>
+                enviados al espacio, distinguiéndolos por su ocupación. Es importante destacar el caso de <br>
+                Hazzaa Al Mansoori en el año 2019, quien se convirtió en el primer astronauta emiratí en <br>
+                embarcarse en una misión científica de los Emiratos Árabes Unidos a la Estación Espacial <br>
+                Internacional (ISS)
+            </p>
+          </div>
           <div id="line_chart" class="chart_container"></div>
         </div>
 

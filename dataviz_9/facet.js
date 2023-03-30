@@ -23,7 +23,7 @@ function plotFacet(dataPromise, divId) {
           label: "Nacionalidad",
         },
         fx: {
-          label: "Proporción",
+          label: "Nacionalidad",
           tickRotate: 10,
         },
         marks: [
