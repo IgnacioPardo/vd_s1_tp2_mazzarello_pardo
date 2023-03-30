@@ -153,6 +153,15 @@ function start() {
       auto_check_dots();
       // Make the charts visible and scrollable
       document.querySelector("HTML").style.overflow = "unset";
+
+      setTimeout(() => {
+        var texts = document.querySelectorAll("text");
+        
+        texts.forEach(t => {
+            t.innerHTML = t.innerHTML.replace(",", "")
+        })
+        }, 1000);
+
     });
   }
 }
