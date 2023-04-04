@@ -18,12 +18,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
     <script src="tree.js"></script>
+    <script src="../assets/tooltip.js"></script>
 
   </head>
-  <body>
-    
-
+  <body onload="main()">
+  
+  
     <div id="tree_chart"></div>
-    
+    <script>
+      function main() {
+        const data = d3.csv("https://ignaciopardo.github.io/vd_s1_tp2_mazzarello_pardo/vd_astronautas/astronautas.csv", d3.autoType);
+        plotTree(data, "#tree_chart");
+      }
+    </script>
   </body>
 </html>
