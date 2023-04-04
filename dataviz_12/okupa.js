@@ -67,7 +67,6 @@ function plotOkupas(dataPromise, divId) {
       },
       y: {
         label: 'Cantidad de astronautas',
-        labelOffset: 70
       },
       color: {
         scheme: 'viridis',

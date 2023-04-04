@@ -48,10 +48,10 @@ button {
 
 .visible {
     opacity: 1;
-    transition: opacity 1s ease-out;
-    -webkit-transition: opacity 1s ease-out;
     -moz-transition: opacity 1s ease-out;
     -o-transition: opacity 1s ease-out;
+    -webkit-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
 }
 
 /* #chart {
@@ -146,14 +146,47 @@ footer {
     border-radius: 12px 12px 0 0;
 }
 
+.footer_chart_link{
+    display: block;
+    color: white;
+    text-decoration: underline;
+    width: 35vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 #footer_contents {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     flex-wrap: nowrap;
     justify-content: space-around;
-
     padding-top: 50px;
+}
+
+#footer_chart_links{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex-wrap: nowrap;
+}
+
+#footer_integrantes{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#footer_integrantes h1{
+    margin: unset;
+}
+
+#footer_chart_links h1{
+    margin: unset;
 }
 
 #footer_links {
@@ -174,10 +207,12 @@ footer {
     justify-content: space-around;
     height: 100%;
     gap: 20px;
+    width: 30vw;
 }
 
 .icon {
     height: 100%;
+    width: 100%;
 }
 
 .icon_ref {

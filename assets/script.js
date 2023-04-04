@@ -8,6 +8,7 @@ function page_load() {
 
 // Animate the title using Typed.js
 function title_animation() {
+  animateHide(document.getElementById("intro"));
   var typed = new Typed("#title", {
     strings: ["🔭 Misiones de Astronautas 🧑‍🚀"],
     typeSpeed: 50,
@@ -18,6 +19,9 @@ function title_animation() {
     },
     cursorChar: "",
   });
+  /* setTimeout(() => {
+    animateShow(document.getElementById("intro"));
+  }, 2000); */
 }
 
 var selected_dot;
@@ -102,6 +106,12 @@ function animateShow(element) {
   // Animate the appearance of an element
   element.classList.remove("hidden");
   element.classList.add("visible");
+}
+
+function animateHide(element) {
+  // Animate the disappearance of an element
+  element.classList.remove("visible");
+  element.classList.add("hidden");
 }
 
 function start() {
