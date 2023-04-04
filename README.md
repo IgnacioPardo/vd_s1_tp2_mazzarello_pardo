@@ -92,7 +92,7 @@ Cómo pie de página, agregamos una visualización de tipo árbol jerárquico c�
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-📅 **Fecha**: Abril 2023
+## 📅 **Fecha**: Abril 2023
 
 <br/><br/><br/><br/>
 
