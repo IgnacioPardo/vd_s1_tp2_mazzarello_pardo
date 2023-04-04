@@ -185,7 +185,7 @@ async function plotCharts() {
   // To each chart, we pass the data and the id of the div where it will be plotted
   plotWorldTour(data, "#worldTour");
   plotHist(data, "#hist_chart");
-  plotHsPerYear(data, "#hist2_chart");
+  plotHsPerYear(data, "#heatmap_chart");
   plotTree(data, "#tree_chart");
   plotFacet(data, "#facet_chart");
   plotOkupas(data, "#line_chart");

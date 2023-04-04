@@ -17,19 +17,19 @@
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
-    <script src="hsPerYear.js"></script>
+    <script src="misions_per_year.js"></script>
     <script src="../assets/tooltip.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/htl@0.3.1/dist/htl.min.js"></script>
 
   </head>
   <body onload="main()">
-    
-
-    <div id="new_chart"></div>
+  
+  
+    <div id="hist_chart"></div>
     <script>
-      function main(){
+      function main() {
         const data = d3.csv("https://ignaciopardo.github.io/vd_s1_tp2_mazzarello_pardo/vd_astronautas/astronautas.csv", d3.autoType);
-        plotHsPerYear(data, "#new_chart");
+        plotHist(data, "#hist_chart");
       }
     </script>
   </body>
