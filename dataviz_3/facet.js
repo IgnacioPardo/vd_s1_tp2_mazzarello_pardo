@@ -7,29 +7,25 @@ function plotFacet(dataPromise, divId) {
       // Y axis: quantity of astronauts
       // Facet: country
       // Plot the data per gender
-      let chart = Plot.plot({
+      let chart = addTooltips(Plot.plot({
         x: {
-          tickFormat: (d) =>
-            d === null ? "N/A" : d === "femenino" ? "F" : "M",
+          // tickFormat: (d) =>
+          //   d === null ? "N/A" : d === "femenino" ? "F" : "M",
+          tickFormat: (d) => d === "Emiratos Arabes Unidos" ? "EAU" : d,
           label: "Género",
+          tickRotate: -14,
         },
         y: {
           grid: true,
-          percent: true,
         },
-        facet: {
-          data: astronautas,
-          x: "nacionalidad",
-          label: "Nacionalidad",
-        },
-        fx: {
-          label: "Nacionalidad",
-          tickRotate: 10,
-        },
+        
         marks: [
           Plot.barY(
             astronautas,
-            Plot.groupX({ y: "proportion-facet" }, { x: "genero" })
+            Plot.groupX(
+              { y: "count" }, 
+              { x: "nacionalidad", fill: "genero" }
+            )
           ),
           Plot.ruleY([0]),
         ],
@@ -40,9 +36,9 @@ function plotFacet(dataPromise, divId) {
           fontFamily: "sans-serif",
           background: "black",
           color: "#f8f14e",
-          width: "100%",
+          padding: "50px",
         },
-      });
+      }));
 
       d3.select(divId).append(() => chart);
     }
