@@ -7,7 +7,12 @@
 - [Luca Mazzarello](https://github.com/Luquish)
 - [Ignacio Pardo](https://github.com/IgnacioPardo)
 
-## 👨🏻‍🏫 **Profesor**: Alejandro Tumas Uffelmann
+## 👨🏻‍🏫 **Profesores**: 
+
+- Alejandro Tumas Uffelmann
+- [Carlos Araujo](https://github.com/araujo-carlos)
+- Julieta Romero
+- Delfina Arambillet
 
 ## 📑 Objetivo
 
