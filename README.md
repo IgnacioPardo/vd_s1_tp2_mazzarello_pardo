@@ -1,4 +1,4 @@
-# Trabajo Práctico Astronautas
+# 🚀 Trabajo Práctico Astronautas - [Link al repo](https://github.com/IgnacioPardo/vd_s1_tp2_mazzarello_pardo)
 
 ## [Visualización de Datos - Licenciatura Tecnología Digital - UTDT](https://www.utdt.edu/ver_contenido.php?id_contenido=19866&id_item_menu=31534)
 
@@ -7,7 +7,7 @@
 - [Luca Mazzarello](https://github.com/Luquish)
 - [Ignacio Pardo](https://github.com/IgnacioPardo)
 
-## 👨🏻‍🏫 **Profesores**: 
+## 👨🏻‍🏫 **Profesores**
 
 - Alejandro Tumas Uffelmann
 - [Carlos Araujo](https://github.com/araujo-carlos)
